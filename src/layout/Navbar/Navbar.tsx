@@ -4,15 +4,15 @@ import { ButtonFill } from "../../styles/styles";
 import { useLocation } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux";
 import { toggleMenu } from "../../store/menu/menuSlice";
-import { toggleCreateNoteModal } from "../../store/modal/modalSLice";
 import getStandardName from "../../utils/getStandardName";
+import { toggleCreateNoteModal } from "../../store/modal/modalSLice";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
 
-  const { pathname, state } = useLocation(); // location  안에 pathname과 state가 들어있다.
-
-  //console.log(state); // 이 state가 archive 문자열 혹은 trash 문자열인지에 따라서 조건부 렌더링을 해줄 수 있다.
+  const { pathname, state } = useLocation();
+// 이 부분이 지금 비어있어서 에러 발생 중
+  console.log(state)
 
   if (pathname === "/404") {
     return null;
@@ -27,14 +27,15 @@ const Navbar = () => {
       <Container>
         <div className="nav__page-title">{getStandardName(state)}</div>
 
-        {state !== "archive" && state !== "trash" && (
+
+        {state !== "Trash" && state !== "Archive" && 
           <ButtonFill
             onClick={() => dispatch(toggleCreateNoteModal(true))}
             className="nav__btn"
           >
             <span>+</span>
           </ButtonFill>
-        )}
+        }
       </Container>
     </StyledNav>
   );
