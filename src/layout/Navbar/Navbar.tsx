@@ -25,8 +25,9 @@ const Navbar = () => {
         <FiMenu onClick={() => dispatch(toggleMenu(true))} />
       </div>
 
+    {/* NaN 경고가 나와서 임시로 NaN을 문자열로 바꿔주는 형변환 진행 */}
       <Container>
-        <div className="nav__page-title">{getStandardName(state)}</div>
+        <div className="nav__page-title">{String(getStandardName(state))}</div>
 
 
         {state !== "Trash" && state !== "Archive" && 
@@ -43,3 +44,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+// Convert the state variable to a string before passing it as a child element
