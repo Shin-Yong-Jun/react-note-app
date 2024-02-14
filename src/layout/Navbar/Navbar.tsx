@@ -11,7 +11,8 @@ const Navbar = () => {
   const dispatch = useAppDispatch();
 
   const { pathname, state } = useLocation();
-// 이 부분이 지금 비어있어서 에러 발생 중
+
+// 이 state부분이 처음 마운트됬을 때 NaN, 지금 비어있어서 에러 발생 중
   console.log(state)
 
   if (pathname === "/404") {
